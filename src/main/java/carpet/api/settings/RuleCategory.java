@@ -26,4 +26,8 @@ public class RuleCategory {
      */
     public static final String CLIENT = "client";
 
+    /**
+     * Add some rules for the ETP
+     */
+    public static final String ETPRev = "etprev";
 }

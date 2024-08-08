@@ -1,5 +1,6 @@
 package carpet.helpers;
 
+import carpet.CarpetSettings;
 import carpet.fakes.ServerPlayerInterface;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -293,6 +295,7 @@ public class EntityPlayerActionPack
             boolean execute(ServerPlayer player, Action action)
             {
                 EntityPlayerActionPack ap = ((ServerPlayerInterface) player).getActionPack();
+                HitResult hit = getTarget(player);
                 if (ap.itemUseCooldown > 0)
                 {
                     ap.itemUseCooldown--;
@@ -302,7 +305,6 @@ public class EntityPlayerActionPack
                 {
                     return true;
                 }
-                HitResult hit = getTarget(player);
                 for (InteractionHand hand : InteractionHand.values())
                 {
                     switch (hit.getType())
@@ -349,10 +351,15 @@ public class EntityPlayerActionPack
                         }
                     }
                     ItemStack handItem = player.getItemInHand(hand);
-                    if (player.gameMode.useItem(player, player.level(), handItem, hand).consumesAction())
-                    {
-                        ap.itemUseCooldown = 3;
-                        return true;
+                    boolean isArmorStand = false;
+                    if(hit instanceof EntityHitResult){
+                        isArmorStand = ((EntityHitResult) hit).getEntity() instanceof ArmorStand;
+                    }
+                    if (!(CarpetSettings.armorStandShieldFakePlayerUsing && isArmorStand)) {
+                        if (player.gameMode.useItem(player, player.level(), handItem, hand).consumesAction()) {
+                            ap.itemUseCooldown = 3;
+                            return true;
+                        }
                     }
                 }
                 return false;

@@ -56,7 +56,7 @@ public class EntityPlayerMPFake extends ServerPlayer
             gameprofile = server.getProfileCache().get(username).orElse(null); //findByName  .orElse(null)
         }
         finally {
-            GameProfileCache.setUsesAuthentication(server.isDedicatedServer() && server.usesAuthentication());
+            GameProfileCache.setUsesAuthentication((server.isDedicatedServer() && server.usesAuthentication()));
         }
         if (gameprofile == null)
         {

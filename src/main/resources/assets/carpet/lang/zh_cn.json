@@ -241,6 +241,9 @@
   "carpet.rule.spawnChunksSize.desc": "更改出生点永久加载区块半径",
   "carpet.rule.spawnChunksSize.extra.0": "定义新半径\n设为0以禁用出生点区块加载",
 
+  "carpet.rule.armorStandShieldFakePlayerUsing.name": "盔甲架屏蔽假人使用物品",
+  "carpet.rule.armorStandShieldFakePlayerUsing.desc":"地毯假人受到盔甲架屏蔽",
+
 
   "carpet.category.bugfix": "漏洞修复",
   "carpet.category.survival": "生存",

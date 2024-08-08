@@ -33,17 +33,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
-import static carpet.api.settings.RuleCategory.BUGFIX;
-import static carpet.api.settings.RuleCategory.COMMAND;
-import static carpet.api.settings.RuleCategory.CREATIVE;
-import static carpet.api.settings.RuleCategory.EXPERIMENTAL;
-import static carpet.api.settings.RuleCategory.FEATURE;
-import static carpet.api.settings.RuleCategory.OPTIMIZATION;
-import static carpet.api.settings.RuleCategory.SURVIVAL;
-import static carpet.api.settings.RuleCategory.TNT;
-import static carpet.api.settings.RuleCategory.DISPENSER;
-import static carpet.api.settings.RuleCategory.SCARPET;
-import static carpet.api.settings.RuleCategory.CLIENT;
+import static carpet.api.settings.RuleCategory.*;
 
 @SuppressWarnings({"CanBeFinal", "removal"}) // removal should be removed after migrating rules to the new system
 public class CarpetSettings
@@ -1034,4 +1024,18 @@ public class CarpetSettings
             category = {SURVIVAL, FEATURE}
     )
     public static FungusGrowthMode thickFungusGrowth = FungusGrowthMode.FALSE;
+
+    @Rule(
+            desc = "armor stan will shield fake players using",
+            extra = "Carpet fake player doesn't subject to armor shield",
+            category = {SURVIVAL, FEATURE, ETPRev}
+    )
+    public static boolean armorStandShieldFakePlayerUsing = false;
+
+    @Rule(
+            desc = "Disable online fake player",
+            extra = "Carpet fake player will download the information of the player\n it make stuck",
+            category = { FEATURE, ETPRev }
+    )
+    public static boolean disableOnlineFakePlayer = true;
 }
