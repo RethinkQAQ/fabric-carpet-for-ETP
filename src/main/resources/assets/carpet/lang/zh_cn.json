@@ -256,6 +256,7 @@
   "carpet.category.dispenser": "发射器",
   "carpet.category.scarpet": "Scarpet脚本语言",
   "carpet.category.client": "客户端",
+  "carpet.category.ETPrev": "ETP修改",
 
   "carpet.settings.command.browse_categories": "浏览分类",
   "carpet.settings.command.version": "版本",

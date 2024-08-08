@@ -29,5 +29,5 @@ public class RuleCategory {
     /**
      * Add some rules for the ETP
      */
-    public static final String ETPRev = "etprev";
+    public static final String ETPRev = "ETPrev";
 }
