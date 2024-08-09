@@ -1038,4 +1038,12 @@ public class CarpetSettings
             category = { FEATURE, ETPRev }
     )
     public static boolean disableOnlineFakePlayer = true;
+
+    @Rule(
+            desc = "Customizable maximal block reach",
+            options = {"8", "32", "64"},
+            category = {EXPERIMENTAL, FEATURE, ETPRev},
+            strict = false
+    )
+    public static int maxBlockReach = 8;
 }

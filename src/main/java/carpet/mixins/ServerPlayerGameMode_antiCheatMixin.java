@@ -31,7 +31,8 @@ public abstract class ServerPlayerGameMode_antiCheatMixin extends LivingEntity
     {
         double maxRange = blockInteractionRange() + d;
         maxRange = maxRange * maxRange;
-        if (CarpetSettings.antiCheatDisabled && maxRange < 9 && getEyePosition().distanceToSqr(Vec3.atCenterOf(pos)) < 9) cir.setReturnValue(true);
+        double allowedRange = CarpetSettings.maxBlockReach * CarpetSettings.maxBlockReach;
+        if (CarpetSettings.antiCheatDisabled && maxRange < allowedRange && getEyePosition().distanceToSqr(Vec3.atCenterOf(pos)) < allowedRange) cir.setReturnValue(true);
     }
 
     @Inject(method = "canInteractWithEntity(Lnet/minecraft/world/phys/AABB;D)Z", at = @At("HEAD"), cancellable = true)
@@ -39,6 +40,7 @@ public abstract class ServerPlayerGameMode_antiCheatMixin extends LivingEntity
     {
         double maxRange = entityInteractionRange() + d;
         maxRange = maxRange * maxRange;
-        if (CarpetSettings.antiCheatDisabled && maxRange < 9 && aabb.distanceToSqr(getEyePosition()) < 9) cir.setReturnValue(true);
+        double allowedRange = CarpetSettings.maxBlockReach * CarpetSettings.maxBlockReach;
+        if (CarpetSettings.antiCheatDisabled && maxRange < allowedRange && aabb.distanceToSqr(getEyePosition()) < allowedRange) cir.setReturnValue(true);
     }
 }
