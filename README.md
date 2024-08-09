@@ -1,4 +1,4 @@
-English | [简体中文](https://github.com/KathleenCome/fabric-carpet-for-ETP/READM_CN.md)
+English | [简体中文](/README_CN.md)
 # Description
 A fork of [Carpet](https://github.com/gnembon/fabric-carpet) for ETP
 

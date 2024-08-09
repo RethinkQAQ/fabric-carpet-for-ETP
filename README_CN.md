@@ -1,4 +1,4 @@
-[English](https://github.com/KathleenCome/fabric-carpet-for-ETP) | 简体中文
+[English](/README.md) | 简体中文
 # 描述
 为了ETP制作的 [Carpet](https://github.com/gnembon/fabric-carpet) 附属
 
