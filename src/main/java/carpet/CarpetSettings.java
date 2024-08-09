@@ -1045,5 +1045,5 @@ public class CarpetSettings
             category = {EXPERIMENTAL, FEATURE, ETPRev},
             strict = false
     )
-    public static int maxBlockReach = 8;
+    public static int maxBlockReach = 32;
 }
