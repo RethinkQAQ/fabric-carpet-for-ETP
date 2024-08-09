@@ -244,6 +244,12 @@
   "carpet.rule.armorStandShieldFakePlayerUsing.name": "盔甲架屏蔽假人使用物品",
   "carpet.rule.armorStandShieldFakePlayerUsing.desc":"地毯假人受到盔甲架屏蔽",
 
+  "carpet.rule.disableOnlineFakePlayer.name": "假人是否在线登录",
+  "carpet.rule.disableOnlineFakePlayer.desc": "假人是否在线登录",
+  "carpet.rule.disableOnlineFakePlayer.extra.0": "假人在线登录会造成服务器卡顿",
+
+  "carpet.rule.maxBlockReach.name": "最大方块放置距离",
+  "carpet.rule.maxBlockReach.desc": "设置玩家可以放置方块的最大距离",
 
   "carpet.category.bugfix": "漏洞修复",
   "carpet.category.survival": "生存",

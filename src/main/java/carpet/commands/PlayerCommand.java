@@ -299,7 +299,7 @@ public class PlayerCommand
             Messenger.m(source, "rb Player " + playerName + " doesn't exist and cannot spawn in online mode. " +
                     "Turn the server offline or the allowSpawningOfflinePlayers on to spawn non-existing players");
             return 0;
-        };
+        }
         return 1;
     }
 

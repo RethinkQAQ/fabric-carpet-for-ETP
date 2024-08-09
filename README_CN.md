@@ -1,6 +1,6 @@
 [English](/README.md) | 简体中文
 # 描述
-为了ETP制作的 [Carpet](https://github.com/gnembon/fabric-carpet) 附属
+为了ETP制作的 [Carpet](https://github.com/gnembon/fabric-carpet)修改版本
 
 ---
 # 修改:

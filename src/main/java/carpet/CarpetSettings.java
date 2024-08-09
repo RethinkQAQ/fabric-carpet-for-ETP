@@ -1032,12 +1032,12 @@ public class CarpetSettings
     )
     public static boolean armorStandShieldFakePlayerUsing = false;
 
-    @Rule(
-            desc = "Disable online fake player",
-            extra = "Carpet fake player will download the information of the player\n it make stuck",
-            category = { FEATURE, ETPRev }
-    )
-    public static boolean disableOnlineFakePlayer = true;
+//    @Rule(
+//            desc = "Disable online fake player",
+//            extra = "Carpet fake player will download the information of the player\n it make stuck",
+//            category = { FEATURE, ETPRev }
+//    )
+//    public static boolean disableOnlineFakePlayer = true;
 
     @Rule(
             desc = "Customizable maximal block reach",
