@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
@@ -41,7 +42,6 @@ public abstract class Explosion_scarpetEventMixin
 
     @Shadow /*@Nullable*/ public abstract /*@Nullable*/ LivingEntity getIndirectSourceEntity();
 
-    @Shadow public static float getSeenPercent(Vec3 source, Entity entity) {return 0.0f;}
 
     private List<Entity> affectedEntities;
 
@@ -55,17 +55,17 @@ public abstract class Explosion_scarpetEventMixin
         }
     }
 
-    @Redirect(method = "explode", at=@At(
+    @ModifyArg(method = "explode", at=@At(
             value = "INVOKE",
             target = "Lnet/minecraft/world/level/Explosion;getSeenPercent(Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/entity/Entity;)F")
     )
-    private float onExplosion(Vec3 source, Entity entity)
+    private Entity onExplosion(Entity entity)
     {
         if (affectedEntities != null)
         {
             affectedEntities.add(entity);
         }
-        return getSeenPercent(source, entity);
+        return entity;
     }
 
     @Inject(method = "finalizeExplosion", at = @At("HEAD"))
