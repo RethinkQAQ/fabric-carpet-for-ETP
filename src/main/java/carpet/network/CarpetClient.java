@@ -15,19 +15,24 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CarpetClient
 {
-    public record CarpetPayload(CompoundTag data) implements CustomPacketPayload
+    public record CarpetPayload(int command,CompoundTag data) implements CustomPacketPayload
     {
         public static final StreamCodec<FriendlyByteBuf, CarpetPayload> STREAM_CODEC = CustomPacketPayload.codec(CarpetPayload::write, CarpetPayload::new);
 
         public static final Type<CarpetPayload> TYPE = new CustomPacketPayload.Type<>(CARPET_CHANNEL);
 
+        public CarpetPayload(CompoundTag data) {
+            this(DATA, data);
+        }
+
         public CarpetPayload(FriendlyByteBuf input)
         {
-            this(input.readNbt());
+            this(input.readInt(), input.readNbt());
         }
 
         public void write(FriendlyByteBuf output)
         {
+            output.writeInt(command);
             output.writeNbt(data);
         }
 
@@ -37,6 +42,7 @@ public class CarpetClient
         }
     }
 
+    public static final int DATA = 1;
     public static final String HI = "69";
     public static final String HELLO = "420";
 

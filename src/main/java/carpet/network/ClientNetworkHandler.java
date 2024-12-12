@@ -144,7 +144,7 @@ public class ClientNetworkHandler
         CompoundTag outer = new CompoundTag();
         outer.put("clientCommand", tag);
         CarpetClient.getPlayer().connection.send(new ServerboundCustomPayloadPacket(
-                new CarpetClient.CarpetPayload(outer)
+                new CarpetClient.CarpetPayload(CarpetClient.DATA ,outer)
         ));
     }
 }

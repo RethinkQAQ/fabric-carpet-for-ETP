@@ -1,5 +1,6 @@
 package carpet.mixins;
 
+import carpet.CarpetSettings;
 import carpet.network.CarpetClient;
 import carpet.network.ClientNetworkHandler;
 import net.minecraft.client.Minecraft;
@@ -36,7 +37,12 @@ public abstract class ClientPacketListener_customPacketsMixin extends ClientComm
     {
         if (packet instanceof CarpetClient.CarpetPayload cpp)
         {
-            ClientNetworkHandler.onServerData(cpp.data(), minecraft.player);
+            if (cpp.command() == CarpetClient.DATA)
+            {
+                ClientNetworkHandler.onServerData(cpp.data(), minecraft.player);
+            } else {
+                CarpetSettings.LOG.info("Invalid carpet-like packet received");
+            }
             ci.cancel();
         }
     }
